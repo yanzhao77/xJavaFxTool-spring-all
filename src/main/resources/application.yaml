@@ -1,0 +1,16 @@
+server:
+    port: 10820
+spring:
+    jmx: 
+        enabled: false
+
+javafx:
+#    title: 我的javaFx工具集合
+    appicons: /images/icon.jpg
+    stage:
+        resizable: true
+
+Spring:
+    mvc:
+        pathmatch:
+            matching-strategy: ANT_PATH_MATCHER
