@@ -4,7 +4,7 @@
 
 	<groupId>com.xwintop</groupId>
 	<artifactId>xJavaFxTool-spring-all</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.0.0</version>
 	<packaging>jar</packaging>
 	<name>xJavaFxTool-spring-all</name>
 	<description>基于JavaFx和SpringBoot搭建的实用小工具集合</description>
@@ -334,20 +334,97 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.2.2</version>
 			</plugin>
 			<plugin>
-				<groupId>com.zenjava</groupId>
-				<artifactId>javafx-maven-plugin</artifactId>
-				<version>8.8.3</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.3</version>
 				<configuration>
-					<mainClass>com.xwintop.xJavaFxTool.Main</mainClass>
-					<vendor>xwintop</vendor>
-					<appName>xJavaFxTool-spring</appName>
-					<jfxMainAppJarName>xJavaFxTool-spring.jar</jfxMainAppJarName>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<configuration>
+							<mainClass>com.xwintop.xJavaFxTool.Main</mainClass>
+							<vendor>xwintop</vendor>
+							<appName>xJavaFxTool-all</appName>
+						</configuration>
+						<manifest>
+							<mainClass>com.xwintop.xJavaFxTool.Main</mainClass>
+						</manifest>
+					</archive>
 				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>assembly</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.akathist.maven.plugins.launch4j</groupId>
+				<artifactId>launch4j-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>l4j-clui</id>
+						<phase>package</phase>
+						<goals><goal>launch4j</goal></goals>
+						<configuration>
+							<!--运行方式，控制台-->
+							<headerType>console</headerType>
+
+							<!--输出的exe文件-->
+							<outfile>${project.build.directory}/${artifactId}-${version}.exe</outfile>
+
+							<!--输出的jar-->
+							<jar>${project.build.directory}/${artifactId}-${version}.jar</jar>
+
+							<!--错误标题-->
+							<errTitle>cmd</errTitle>
+							<classPath>
+								<!--换成自己的主类-->
+								<mainClass>com.xwintop.xJavaFxTool.Main</mainClass>
+								<addDependencies>true</addDependencies>
+								<preCp>anything</preCp>
+							</classPath>
+
+
+							<!--配置jre-->
+							<jre>
+								<minVersion>1.8.0</minVersion>
+								<bundledJre64Bit>false</bundledJre64Bit>
+								<bundledJreAsFallback>false</bundledJreAsFallback>
+								<jdkPreference>preferJdk</jdkPreference>
+								<initialHeapSize>128</initialHeapSize>
+								<maxHeapSize>1024</maxHeapSize>
+
+								<!--jre路径，将生成的exe文件放到和jre同级目录，并把jre文件夹命名为jre-->
+								<path>./jre</path>
+							</jre>
+							<!--一些版本信息配置，根据需要配置-->
+							<versionInfo>
+								<fileVersion>${version}</fileVersion>
+								<txtFileVersion>${version}</txtFileVersion>
+								<fileDescription>cmdTest</fileDescription>
+								<copyright>离离原上草</copyright>
+								<productVersion>${version}</productVersion>
+								<txtProductVersion>cmd</txtProductVersion>
+								<productName>cmdTest</productName>
+								<internalName>cmd</internalName>
+								<originalFilename>${artifactId}-${version}.exe</originalFilename>
+							</versionInfo>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
+
 </project>
