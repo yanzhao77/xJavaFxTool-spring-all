@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.TextField?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xwintop.xJavaFxTool.controller.developTools.XpathConvertToolController">
+   <children>
+         <TextField onAction="#findXmlNodeByXpathAction" fx:id="xpathTextArea" minHeight="50"  AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"/>
+         <SplitPane dividerPositions="0.4" layoutX="100.0" layoutY="92.0" AnchorPane.topAnchor="75"  AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0" >
+            <items>
+               <TextArea fx:id="allXmlTextArea" HBox.hgrow="ALWAYS"/>
+               <HBox alignment="CENTER" SplitPane.resizableWithParent="false">
+                  <children>
+                     <VBox alignment="TOP_CENTER" minWidth="100.0" spacing="5.0">
+                        <children>
+                           <Button mnemonicParsing="false" onAction="#createXpathByXmlNodeAction" text="生成xpath" />
+                           <Button mnemonicParsing="false" onAction="#findXmlNodeByXpathAction" text="查找节点" />
+                        </children>
+                        <HBox.margin>
+                           <Insets top="10.0" />
+                        </HBox.margin>
+                     </VBox>
+                     <TextArea fx:id="nodeXmlTextArea" HBox.hgrow="ALWAYS" />
+                  </children>
+               </HBox>
+            </items>
+         </SplitPane>
+   </children>
+</AnchorPane>

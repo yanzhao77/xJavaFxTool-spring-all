@@ -46,8 +46,8 @@ public class WebSourcesToolController extends WebSourcesToolView {
 	}
 
 	private void initView() {
-		urlTextField.setText("http://www.xwintop.com");
-		showHrmlWebView.getEngine().load("http://www.xwintop.com");
+		urlTextField.setText("https://www.baidu.com/");
+		showHrmlWebView.getEngine().load("https://www.baidu.com/");
 	}
 
 	private void initEvent() {

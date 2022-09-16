@@ -341,6 +341,6 @@ public class IndexController extends IndexView {
 
     @FXML
     private void xwintopLinkOnAction(ActionEvent event) throws Exception {
-        HttpClientUtil.openBrowseURLThrowsException("https://gitee.com/xwintop/xJavaFxTool-spring");
+        HttpClientUtil.openBrowseURLThrowsException("https://gitee.com/yanzhao0707/x-java-fx-tool-spring-all");
     }
 }

@@ -210,6 +210,11 @@
         <menuParentId>developTools</menuParentId>
     </ToolFxmlLoaderConfiguration>
     <ToolFxmlLoaderConfiguration>
+        <className>com.xwintop.xJavaFxTool.fxmlView.developTools.XpathConvertToolView</className>
+        <title>XpathConvertTool</title>
+        <menuParentId>developTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
         <className>com.xwintop.xJavaFxTool.fxmlView.assistTools.WechatJumpGameToolView</className>
         <title>WechatJumpGameTool</title>
         <menuParentId>assistTools</menuParentId>
