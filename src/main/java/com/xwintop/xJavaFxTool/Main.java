@@ -33,7 +33,7 @@ public class Main extends AbstractJavaFxApplicationSupport {
         SplashScreen splashScreen = new SplashScreen() {
             @Override
             public String getImagePath() {
-                return "/images/javafx.png";
+                return "/images/javafx.jpg";
             }
         };
         launch(Main.class, IndexView.class, splashScreen, args);

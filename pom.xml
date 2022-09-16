@@ -326,110 +326,30 @@
 
 
     <build>
-        <finalName>${project.artifactId}</finalName>
-        <sourceDirectory>src/main/java</sourceDirectory>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*.xml</include>
-                    <include>**/*.properties</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>${profile.dir}</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>${maven-assembly-plugin.version}</version>
-                <configuration>
-                    <appendAssemblyId>false</appendAssemblyId>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <!--换成自己的主类-->
-                            <mainClass>com.xwintop.xJavaFxTool.Main</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>com.akathist.maven.plugins.launch4j</groupId>
-                <artifactId>launch4j-maven-plugin</artifactId>
-                <version>2.1.2</version>
-                <executions>
-                    <execution>
-                        <id>l4j-club</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>launch4j</goal>
-                        </goals>
-                        <configuration>
-                            <!--运行方式，控制台-->
-                            <headerType>console</headerType>
-
-                            <!--输出的exe文件-->
-                            <outfile>${project.build.directory}/${artifactId}.exe</outfile>
-
-                            <!--输出的jar-->
-                            <jar>${project.build.directory}/${artifactId}.jar</jar>
-                            <!--<jar>target/${project.artifactId}-${project.version}-shaded.jar</jar>-->
-
-                            <!--错误标题-->
-                            <errTitle>cmd</errTitle>
-                            <classPath>
-                                <!--换成自己的主类-->
-                                <mainClass>com.xwintop.xJavaFxTool.Main</mainClass>
-                                <addDependencies>true</addDependencies>
-                                <preCp>anything</preCp>
-                            </classPath>
-
-
-                            <!--配置jre-->
-                            <jre>
-                                <minVersion>1.8.0</minVersion>
-                                <bundledJre64Bit>false</bundledJre64Bit>
-                                <bundledJreAsFallback>false</bundledJreAsFallback>
-                                <jdkPreference>preferJdk</jdkPreference>
-                                <initialHeapSize>128</initialHeapSize>
-                                <maxHeapSize>1024</maxHeapSize>
-
-                                <!--jre路径，将生成的exe文件放到和jre同级目录，并把jre文件夹命名为jre-->
-                                <path>./jre</path>
-                            </jre>
-                            <!--一些版本信息配置，根据需要配置-->
-                            <versionInfo>
-                                <fileVersion>${version}</fileVersion>
-                                <txtFileVersion>${version}</txtFileVersion>
-                                <fileDescription>cmdTest</fileDescription>
-                                <copyright>离离原上草</copyright>
-                                <productVersion>${version}</productVersion>
-                                <txtProductVersion>cmd</txtProductVersion>
-                                <productName>cmdTest</productName>
-                                <internalName>cmd</internalName>
-                                <originalFilename>${artifactId}-${version}.exe</originalFilename>
-                            </versionInfo>
-                        </configuration>
-                    </execution>
-                </executions>
+                <groupId>com.zenjava</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>8.8.3</version>
+                <configuration>
+                    <mainClass>com.xwintop.xJavaFxTool.Main</mainClass>
+                    <appName>${project.build.finalName}-${project.version}</appName> <!-- 图标的位置 -->
+                    <vendor>azir</vendor>
+                    <deployDir>${basedir}/src/resources/images/</deployDir> <!-- 菜单 -->
+                    <needMenu>true</needMenu> <!-- 桌面图标 -->
+                    <jfxMainAppJarName>${artifactId}-${version}.jar</jfxMainAppJarName>
+                    <needShortcut>true</needShortcut><!-- 需要生成快捷方式-->
+                    <bundleArguments>
+                        <installdirChooser>true</installdirChooser><!-- 指示用户是否可以选择应用程序安装目录的标志 -->
+                        <!-- 安装时显示的用户协议 -->
+                        <licenseFile>${basedir}/src/resources/banner.txt</licenseFile>
+                    </bundleArguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
