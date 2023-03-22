@@ -337,16 +337,18 @@
                 <version>8.8.3</version>
                 <configuration>
                     <mainClass>com.xwintop.xJavaFxTool.Main</mainClass>
-                    <appName>${project.build.finalName}-${project.version}</appName> <!-- 图标的位置 -->
+                    <appName>${artifactId}-${version}</appName> <!-- 图标的位置 -->
                     <vendor>azir</vendor>
-                    <deployDir>${basedir}/src/resources/images/</deployDir> <!-- 菜单 -->
+                    <!-- 菜单 -->
+                    <!--<deployDir>${basedir}/src/resources/images/</deployDir> -->
                     <needMenu>true</needMenu> <!-- 桌面图标 -->
                     <jfxMainAppJarName>${artifactId}-${version}.jar</jfxMainAppJarName>
                     <needShortcut>true</needShortcut><!-- 需要生成快捷方式-->
                     <bundleArguments>
-                        <installdirChooser>true</installdirChooser><!-- 指示用户是否可以选择应用程序安装目录的标志 -->
+                        <!-- 指示用户是否可以选择应用程序安装目录的标志 -->
+                        <installdirChooser>true</installdirChooser>
                         <!-- 安装时显示的用户协议 -->
-                        <licenseFile>${basedir}/src/resources/banner.txt</licenseFile>
+                        <licenseFile>licenseFile.banner</licenseFile>
                     </bundleArguments>
                 </configuration>
             </plugin>
