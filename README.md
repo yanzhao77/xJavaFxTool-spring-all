@@ -14,10 +14,10 @@ xJavaFxTool-spring是基于springBoot，使用javaFx开发的实用小工具集�
 
 #### 环境搭建说明：
 
-- 开发环境为jdk1.8，基于maven构建；
-- springframework版本为2.7.3
+- 开发环境为jdk17，基于maven构建；
+- springframework版本为2.7.12
 - 使用eclipase或Intellij Idea开发(推荐使用[Intellij Idea](https://www.jetbrains.com/idea/))
-- 基于SpringBoot搭建，大大简化了配置操作。
+- 基于SpringBoot搭建，原版本的springboot-javafx-support 是基于jdk1.8写的，已经重写了，测试可以覆盖jdk11 / 17 / 20，springboot3.0以上亦可以支持，项目地址[springboot-javafx-support-17](https://github.com/yanzhao77/springboot-javafx-support)
 - 本项目使用了lombok,在查看本项目时如果您没有下载lombok 插件，请先安装,不然找不到get/set方法；
 - 依赖的[xcore包](https://gitee.com/xwintop/xcore)已上传到项目lib下
 - 使用[javafx-maven-plugin](https://github.com/javafx-maven-plugin/javafx-maven-plugin)插件进行打包操作（可打包windows、Linux、Mac安装包）；
