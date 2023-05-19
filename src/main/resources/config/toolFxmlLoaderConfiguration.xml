@@ -118,12 +118,12 @@
         <title>RedisTool</title>
         <menuParentId>debugTools</menuParentId>
     </ToolFxmlLoaderConfiguration>
-    <ToolFxmlLoaderConfiguration>
+   <!-- <ToolFxmlLoaderConfiguration>
         <className>com.xwintop.xJavaFxTool.fxmlView.codeTools.WebSourcesToolView</className>
         <title>WebSourcesTool</title>
         <menuParentId>codeTools</menuParentId>
         <isDefaultShow>true</isDefaultShow>
-    </ToolFxmlLoaderConfiguration>
+    </ToolFxmlLoaderConfiguration>-->
     <ToolFxmlLoaderConfiguration>
         <className>com.xwintop.xJavaFxTool.fxmlView.debugTools.SwitchHostsToolView</className>
         <title>SwitchHostsTool</title>

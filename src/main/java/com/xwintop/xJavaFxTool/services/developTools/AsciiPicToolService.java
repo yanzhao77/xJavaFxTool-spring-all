@@ -13,10 +13,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFCellStyle;
-import org.apache.poi.xssf.usermodel.XSSFColor;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -147,7 +144,7 @@ public class AsciiPicToolService {
                 int finalJ = j;
                 executor.execute(() -> {
                     XSSFCellStyle style = excel.createCellStyle();
-                    style.setFillForegroundColor(new XSSFColor(new Color(bi.getRGB(finalJ, finalI))));
+                    style.setFillForegroundColor(new XSSFColor((IndexedColorMap) new Color(bi.getRGB(finalJ, finalI))));
                     style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                     row.createCell(finalJ).setCellStyle(style);
                     log.info("完成" + finalJ + "列：" + finalI);
